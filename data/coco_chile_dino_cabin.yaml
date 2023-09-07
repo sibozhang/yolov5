@@ -10,11 +10,18 @@
 # Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
 path: /mnt/data/sibo  # dataset root dir
 train: 
-- coco/train2017_chile_2class.txt
+- coco/train2017_chile_2class.txt #69K images
 - chile_remote_videos/Chile_713_data_cabin.v4i.yolov5pytorch/train/ #354 images
+- GP45/202308/cabin/dino_2class/train #1038 images
+- GP45/202309/cabin/dino_2class/train #977 images
+
 # train images (relative to 'path') 118287 images
 val:
-- coco/val2017_chile_2class.txt 
+# - coco/val2017_chile_2class.txt
+- GP45/202308/cabin/dino_2class/valid #260 images
+- GP45/202309/cabin/dino_2class/valid #245 images
+
+# - chile_remote_videos/Chile_713_data_cabin.v4i.yolov5pytorch/train/  
 # val images (relative to 'path') 5000 images
 test: chile_remote_videos/Chile_713_data_cabin.v4i.yolov5pytorch/train/  
 # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794

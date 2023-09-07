@@ -26,7 +26,7 @@ val:
   - GP45/20230517-0523/dino_2class/valid #50 images
   # - GP45/20230524-0605/dino_2class/valid #200 images
   - GP45/20230606-0612/dino_2class/valid #200 images
-  - GP45/202308/dino_7class/valid #151 images
+  - GP45/202308/dino_7class/valid #320 images
 test:
   - GP45/20230517-0523/dino_2class/valid
   - GP45/20230606-0612/dino_2class/valid
