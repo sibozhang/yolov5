@@ -1,0 +1,59 @@
+# YOLOv5 🚀 by Ultralytics, GPL-3.0 license
+# COCO 2017 dataset http://cocodataset.org by Microsoft
+# Example usage: python train.py --data coco.yaml
+# parent
+# ├── yolov5
+# └── datasets
+#     └── coco  ← downloads here (20.1 GB)
+
+
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: /mnt/data/sibo  # dataset root dir
+# train: train2017.txt  # train images (relative to 'path') 118287 images
+train: 
+  - coco/train2017_chile_4class.txt #69K images
+  - GP45/202305/dino_8class/train #200 images
+  - GP45/202306/dino_8class/train #242 images
+  - GP45/202308/dino_8class/train #2636 images
+  - GP45/202309/dino_8class/train #1912 images  
+  - chile_remote_videos/data_annotation/829_annotation/train/ #400+ images, human labeled, 8class
+  - chile_remote_videos/Chile_713_data.v13i.yolov5pytorch/train/ #43 images, 8class
+  # - cone_dataset/ArtificialTrafficCones.v1-basic-noaug.yolov5pytorch/train/ #714 images
+  # - Hard_Hat_Workers.v1i.yolov5pytorch/train/ #5269 images
+# val: val2017.txt  # val images (relative to 'path') 5000 images
+val: 
+  - GP45/202305/dino_8class/valid #50 images
+  - GP45/202306/dino_8class/valid #61 images
+  - GP45/202308/dino_8class/valid #659 images
+  - GP45/202309/dino_8class/valid #478 images
+test:
+  # - GP45/20230517-0523/dino_2class/valid
+  # - GP45/20230606-0612/dino_2class/valid
+  # - GP45/202308/dino_7class/valid #151 images
+# test: test-dev2017.txt  # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
+
+# Classes
+nc: 8
+names: ['person', 'car', 'truck', 'cell phone', 'cone', 'helmet', 'machinery vehicle', 'hook']
+
+# nc: 15  # number of classes
+# names: ['person', 'car', 'truck', 'cell phone', 'excavator', 'loader', 'crane', 'cone', 'hook', 'shovel', 'payload', 'helmet', 'bar', 'rope', 'barrier'] # 10-14
+
+
+# Download script/URL (optional)
+download: |
+  from utils.general import download, Path
+
+
+  # Download labels
+  segments = False  # segment or box labels
+  dir = Path(yaml['path'])  # dataset root dir
+  url = 'https://github.com/ultralytics/yolov5/releases/download/v1.0/'
+  urls = [url + ('coco2017labels-segments.zip' if segments else 'coco2017labels.zip')]  # labels
+  download(urls, dir=dir.parent)
+
+  # Download data
+  urls = ['http://images.cocodataset.org/zips/train2017.zip',  # 19G, 118k images
+          'http://images.cocodataset.org/zips/val2017.zip',  # 1G, 5k images
+          'http://images.cocodataset.org/zips/test2017.zip']  # 7G, 41k images (optional)
+  download(urls, dir=dir / 'images', threads=3)
