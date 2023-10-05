@@ -11,16 +11,21 @@
 path: /mnt/data/sibo  # dataset root dir
 train:
     - ../../scratch/sibo/datasets/Objects365/train_chile_7class.txt #1.17m images, 7class
-    - GP45/202308/202308.v2i.yolov5pytorch/train # 899 images  
-    - GP45/20230901-05/202309.v2i.yolov5pytorch/train # 870 images, human labeled, 8class  
+    - GP45/202305/dino_8class/train #200 images
+    - GP45/202306/dino_8class/train #242 images
+    - GP45/202308/dino_8class/train #2636 images
+    - GP45/202309/dino_8class/train #1912 images  
     - chile_remote_videos/data_annotation/829_annotation/train/ #400+ images, human labeled, 8class
     - chile_remote_videos/Chile_713_data.v13i.yolov5pytorch/train/ #43 images, 8class
 # images/train  # train images (relative to 'path') 1742289 images
 val:
     # - ../../scratch/sibo/datasets/Objects365/val_chile_7class.txt
-    - GP45/202308/202308.v2i.yolov5pytorch/valid # 252 images
-    - GP45/20230901-05/202309.v2i.yolov5pytorch/valid # 329 images
-
+    # - GP45/202305/dino_8class/valid #50 images
+    # - GP45/202306/dino_8class/valid #61 images
+    # - GP45/202308/dino_8class/valid #659 images
+    # - GP45/202309/dino_8class/valid #478 images
+    - GP45/20230906-13/dino_8class/train #2162 images
+    - GP45/20230906-13/dino_8class/valid #541 images
 # images/val # val images (relative to 'path') 80000 images
 test:  # test images (optional)
 

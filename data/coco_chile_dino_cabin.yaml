@@ -12,17 +12,18 @@ path: /mnt/data/sibo  # dataset root dir
 train: 
 - coco/train2017_chile_2class.txt #65K images
 - chile_remote_videos/Chile_713_data_cabin.v4i.yolov5pytorch/train/ #354 images
-- GP45/202308/cabin/dino_2class/train #1917 images
-- GP45/202309/cabin/dino_2class/train #977 images
+- GP45/202308/cabin/cabin_202308.v1i.yolov5pytorch/train # 1909 images
+- GP45/202309/cabin/cabin_20230901-05.v1i.yolov5pytorch/train # 958 images
 
 # train images (relative to 'path') 118287 images
 val:
-- GP45/202308/cabin/dino_2class/valid #480 images
-- GP45/202309/cabin/dino_2class/valid #245 images
+# - GP45/202308/cabin/cabin_202308.v1i.yolov5pytorch/valid # 339 images
+# - GP45/202309/cabin/cabin_20230901-05.v1i.yolov5pytorch/valid # 250 images
+- GP45/20230906-13/cabin/cabin_20230906-13.v1i.yolov5pytorch/train # 656 images
+- GP45/20230906-13/cabin/cabin_20230906-13.v1i.yolov5pytorch/valid # 165 images
 
-# - chile_remote_videos/Chile_713_data_cabin.v4i.yolov5pytorch/train/  
-# val images (relative to 'path') 5000 images
-test: chile_remote_videos/Chile_713_data_cabin.v4i.yolov5pytorch/train/  
+test: 
+# chile_remote_videos/Chile_713_data_cabin.v4i.yolov5pytorch/train/  
 # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
 
 # Classes
