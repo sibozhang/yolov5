@@ -42,7 +42,7 @@ def process_data(mode):
         0: 0,  # person
         2: 1,  # car
         7: 2,  # truck
-        67: 3  # cell phone
+        # 67: 3  # cell phone
     }
 
     with ProcessPoolExecutor() as executor:
@@ -51,7 +51,7 @@ def process_data(mode):
             if (index + 1) % 100 == 0:
                 print(f"Processed {index + 1} label files for mode: {mode}.")
 
-    output_file_path = os.path.join(BASE_DIR, f"{mode}2017_chile_4class.txt")
+    output_file_path = os.path.join(BASE_DIR, f"{mode}2017_chile_3class.txt")
 
     with open(output_file_path, 'w') as file:
         for label_file in label_files:
