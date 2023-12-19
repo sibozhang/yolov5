@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --partition=V100x8_sixdays,V100x8,A100x8_twodays,A100x8
+#SBATCH --partition=A100x8_twodays,A100x8,V100x8_sixdays,V100x8
 #SBATCH --gres=gpu:8
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
