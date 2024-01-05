@@ -1,20 +1,28 @@
 #!/bin/bash
 
 # Define YOLO model names
-YOLO_OUTDOOR_MODEL="20231214l6"
+# YOLO_OUTDOOR_MODEL="20231214l6"
+# YOLO_OUTDOOR_MODEL_EXP="exp454"
+# YOLO_OUTDOOR_MODEL="2023116m"
+# YOLO_OUTDOOR_MODEL_EXP="exp449"
+YOLO_OUTDOOR_MODEL="20231214x"
+YOLO_OUTDOOR_MODEL_EXP="exp455"
+
 YOLO_CABIN_MODEL="20231107m_cabin"
 
 # Updated list of folder names
-declare -a folder_names=("20230829_114310" "20230901_101413" "20230904_135906" "20230906_101400" "20230912_145556" "20230830_220436" "20230831_210234" "20230902_231627" "20230905_193841" "20230906_190938")
+# declare -a folder_names=("20230829_114310" "20230901_101413" "20230904_135906" "20230906_101400" "20230912_145556" "20230830_220436" "20230831_210234" "20230902_231627" "20230905_193841" "20230906_190938")
 # declare -a folder_names=("20231011" "20231012" "20231013" "20231016" "20231017" "20231018" "20231019" "20231020" "20231101" "20231102")
 # declare -a folder_names=("20231011")
-
+# declare -a folder_names=("20231201" "20231202" "20231204" "20231206" "20231207" "20231210" "20231212" "20231213" "20231214" "20231215")
+# declare -a folder_names=("20231216" "20231217" "20231220" "20231221" "20231225" "20231226" "20231227" "20231228" "20231229" "20231230" "20231231")
+declare -a folder_names=("20231201" "20231202" "20231204" "20231206" "20231207" "20231210" "20231212" "20231213" "20231214" "20231215" "20231216" "20231217" "20231220" "20231221" "20231225" "20231226" "20231227" "20231228" "20231229" "20231230" "20231231")
 # Function to run detect.py for a specific video file
 run_detection() {
     local folder_name=$1
     local gpu=$2
 
-    local folder_path="/mnt/data/sibo/GP45/overall_selected/GP45_${folder_name}"
+    local folder_path="/mnt/data/sibo/GP45/202312/video/${folder_name}"
     echo "Processing folder: $folder_path"
     
     # for video_file in /mnt/data/sibo/GP45/overall_selected/${folder_name}/*.mp4; do
@@ -32,7 +40,7 @@ run_detection() {
         # Determine the model name and experiment number based on the video file name
         if [[ "$filename" =~ ^[0-3]\.mp4$ ]]; then
             model_name=$YOLO_OUTDOOR_MODEL
-            exp="exp454"
+            exp=$YOLO_OUTDOOR_MODEL_EXP
             # model_name="20231116m"
             # exp="exp449"
         elif [[ "$filename" == "4.mp4" ]]; then
@@ -50,9 +58,9 @@ run_detection() {
         # local output_dir="/mnt/data/sibo/GP45/overall_selected/GP45_${folder_name}/${model_name}"
 
         echo "Processing file: $source_file with model $model_name"
-        CUDA_VISIBLE_DEVICES="$gpu" python detect.py \
+        CUDA_VISIBLE_DEVICES="$gpu" python ../detect.py \
             --source "$source_file" \
-            --weights "runs/train/${exp}/weights/best.pt" \
+            --weights "../runs/train/${exp}/weights/best.pt" \
             --img 1280 \
             --iou-thres=0.4 \
             --save-txt \
