@@ -12,12 +12,11 @@ path: /mnt/data/sibo  # dataset root dir
 # train: train2017.txt  # train images (relative to 'path') 118287 images
 train: 
   - coco/train2017_chile_3class.txt #69K images
-  - chile_remote_videos/data_annotation/simulation_scene_annotation.v4i.yolov5pytorch/train # 346 images
-  # - chile_remote_videos/data_annotation/829_annotation/train/ #400+ images, human labeled, 8class
-  - chile_remote_videos/20220713.v15i.yolov5pytorch/train/ #43 images, 8class  
-  - GP45/202308/202308.v9i.yolov5pytorch/train # 899 images, human labeled, 8class
-  - GP45/20230901-05/20230901-05.v7i.yolov5pytorch/train # 870 images, human labeled, 8class  
-  - GP45/20230906-13/20230906-13.v4i.yolov5pytorch/train #1153 images  
+  - chile_remote_videos/20220713.v17i.yolov5pytorch/train/ #43 images
+  - chile_remote_videos/data_annotation/simulation_scene_annotation.v7i.yolov5pytorch/train # 346 images
+  - GP45/202308/202308.v9i.yolov5pytorch/train # 899 images, human labeled, 7class
+  - GP45/20230901-05/20230901-05.v7i.yolov5pytorch/train # 870 images, human labeled, 7class  
+  - GP45/20230906-13/20230906-13.v4i.yolov5pytorch/train #1153 images, 7class  
 # val: val2017.txt  # val images (relative to 'path') 5000 images
 val: 
   - GP45/202308/202308.v9i.yolov5pytorch/valid # 252 images
