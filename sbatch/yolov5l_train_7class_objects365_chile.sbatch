@@ -12,4 +12,4 @@ cd /mnt/scratch/sibo/yolov5
 source /tools/anaconda3-default/etc/profile.d/conda.sh
 conda activate yolov5
 
-srun python -m torch.distributed.run --nproc_per_node 8 train.py --data Objects365_chile_7class.yaml --weights yolov5l.pt --batch-size 64 --device 0,1,2,3,4,5,6,7 --epochs 100 --patience 10 --img 1280
+srun python -m torch.distributed.run --nproc_per_node 8 train.py --data Objects365_chile_7class.yaml --weights yolov5l.pt --batch-size 64 --device 0,1,2,3,4,5,6,7 --epochs 100 --patience 10 --img 1280 --hyp hyp.scratch-high.yaml

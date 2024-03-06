@@ -5,10 +5,10 @@
 # YOLO_OUTDOOR_MODEL_EXP="exp454"
 # YOLO_OUTDOOR_MODEL="2023116m"
 # YOLO_OUTDOOR_MODEL_EXP="exp449"
-YOLO_OUTDOOR_MODEL="20231214x"
-YOLO_OUTDOOR_MODEL_EXP="exp455"
+YOLO_OUTDOOR_MODEL="20240123m"
+YOLO_OUTDOOR_MODEL_EXP="exp470"
 
-YOLO_CABIN_MODEL="20231107m_cabin"
+YOLO_CABIN_MODEL="20240124m_cabin"
 
 # Updated list of folder names
 # declare -a folder_names=("20230829_114310" "20230901_101413" "20230904_135906" "20230906_101400" "20230912_145556" "20230830_220436" "20230831_210234" "20230902_231627" "20230905_193841" "20230906_190938")
@@ -61,7 +61,7 @@ run_detection() {
         CUDA_VISIBLE_DEVICES="$gpu" python ../detect.py \
             --source "$source_file" \
             --weights "../runs/train/${exp}/weights/best.pt" \
-            --img 1280 \
+            --img 640 \
             --iou-thres=0.4 \
             --save-txt \
             --save-conf \

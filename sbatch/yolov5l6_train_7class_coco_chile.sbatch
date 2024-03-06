@@ -4,8 +4,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=40
-#SBATCH --output=/mnt/scratch/sibo/yolov5/logs/yolov5l6_coco_chile_7class_%j.out
-#SBATCH --error=/mnt/scratch/sibo/yolov5/logs/yolov5l6_coco_chile_7class_%j.err
+#SBATCH --output=/mnt/scratch/sibo/yolov5/logs/slurm/yolov5l6_coco_chile_7class_%j.out
+#SBATCH --error=/mnt/scratch/sibo/yolov5/logs/outdoor/yolov5l6_coco_chile_7class_%j.err
 #SBATCH --exclude=asimov-243
 
 cd /mnt/scratch/sibo/yolov5

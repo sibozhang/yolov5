@@ -15,12 +15,14 @@ train:
 - GP45/202308/cabin/202308_cabin.v3i.yolov5pytorch/train # 1857 images
 - GP45/202309/cabin/202309_cabin.v2i.yolov5pytorch/train # 1547 images
 - GP45/202310/cabin/202310_cabin.v4i.yolov5pytorch/train #201 images
+- GP45/walkie-talkie.v1i.yolov5pytorch/train #658 images
 
 # train images (relative to 'path') 118287 images
 val:
 - GP45/202308/cabin/202308_cabin.v3i.yolov5pytorch/valid # 333 images
 - GP45/202309/cabin/202309_cabin.v2i.yolov5pytorch/valid # 248 images
 - GP45/202310/cabin/202310_cabin.v4i.yolov5pytorch/valid # 50 images
+- GP45/walkie-talkie.v1i.yolov5pytorch/valid #165 images
 
 test: 
 # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794

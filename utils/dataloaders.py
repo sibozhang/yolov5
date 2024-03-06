@@ -723,15 +723,37 @@ class LoadImagesAndLabels(Dataset):
 
         return torch.from_numpy(img), labels_out, self.im_files[index], shapes
 
+    # def load_image(self, i):
+    #     im, f, fn = self.ims[i], self.im_files[i], self.npy_files[i]
+    #     print(f"Loading image: {f}, file name: {fn}")
+    #     if im is None:
+    #         if fn.exists():
+    #             print(f"Loading NPY: {fn}, File Size: {os.path.getsize(fn)}")
+    #             im = np.load(fn)
+    #             print(f"Array shape: {im.shape}, Array size: {im.size}")
+    #         else:
+    #             print(f"Loading image: {f}")
+    #             im = cv2.imread(f)
+    #             assert im is not None, f'Image Not Found {f}'
+    #         h0, w0 = im.shape[:2]
+    #         r = self.img_size / max(h0, w0)
+    #         if r != 1:
+    #             interp = cv2.INTER_LINEAR if (self.augment or r > 1) else cv2.INTER_AREA
+    #             im = cv2.resize(im, (int(w0 * r), int(h0 * r)), interpolation=interp)
+    #         return im, (h0, w0), im.shape[:2]
+    #     return self.ims[i], self.im_hw0[i], self.im_hw[i]
+
     def load_image(self, i):
         # Loads 1 image from dataset index 'i', returns (im, original hw, resized hw)
         im, f, fn = self.ims[i], self.im_files[i], self.npy_files[i],
         if im is None:  # not cached in RAM
-            if fn.exists():  # load npy
-                im = np.load(fn)
-            else:  # read image
-                im = cv2.imread(f)  # BGR
-                assert im is not None, f'Image Not Found {f}'
+            # if fn.exists():  # load npy
+            #     im = np.load(fn)
+            # else:  # read image
+            #     im = cv2.imread(f)  # BGR
+            #     assert im is not None, f'Image Not Found {f}'
+            im = cv2.imread(f)  # BGR
+            assert im is not None, f'Image Not Found {f}'
             h0, w0 = im.shape[:2]  # orig hw
             r = self.img_size / max(h0, w0)  # ratio
             if r != 1:  # if sizes are not equal
